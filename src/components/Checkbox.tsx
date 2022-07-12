@@ -5,6 +5,7 @@ type Props = {
   label: string;
   checked: boolean;
   onChange: ChangeEventHandler;
+  options?: ("ALL" | "DONE" | "TODO")[],
 };
 
 function Checkbox({ value, label, checked, onChange }: Props) {
@@ -22,14 +23,14 @@ function Checkbox({ value, label, checked, onChange }: Props) {
   );
 }
 
-export const CheckboxGroup = ({
+export const CheckboxGroup: React.FC<Props> = ({
   value: groupValue,
   options,
   onChange,
-}: any) => { ///????
+}) => { 
   return (
     <>
-      {options.map((value: string) => (
+      {options!.map((value: string) => (
         <Checkbox
           value={value}
           label={value}

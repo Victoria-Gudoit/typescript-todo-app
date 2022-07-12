@@ -2,7 +2,7 @@ import { Todo } from "./slice";
 import { Store } from "./store";
 import { FILTER } from "./filterSlice";
 
-export const filterTasks = (filter: FILTER, task: Todo) => {
+export const filterTasks = (filter: FILTER, task: Todo): boolean => {
     if (filter === FILTER.ALL) {
       return true;
     }

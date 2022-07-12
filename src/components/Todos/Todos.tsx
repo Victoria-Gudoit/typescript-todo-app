@@ -23,7 +23,7 @@ export const Todos: React.FC<TodosProps> = ({ name }) => {
     dispatch(TodosActions.deleteTodo({ id }));
   };
 
-  const changeFilter: ChangeEventHandler<HTMLInputElement> = (event: any) => {//тут я что-то не сообрзила как по-другому
+  const changeFilter: ChangeEventHandler<HTMLInputElement> = (event: any) => {
     dispatch(FilterAction.toggleFilter({ value: event.target.value }));
   };
 
@@ -37,10 +37,9 @@ export const Todos: React.FC<TodosProps> = ({ name }) => {
             }
           )}
           value={filter}
-          onChange={changeFilter}
-        />
+          onChange={changeFilter} label={""} checked={false}        />
       </div>
-      <h1>{name}, что тебе надо сделать:</h1>
+      <h1 className={css.name}>{name}, что тебе надо сделать:</h1>
       <ul className={css.list}>
         {todos.map(({ id, label, isDone }) => (
           <li className={css.item} key={id}>
